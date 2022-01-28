@@ -1,0 +1,16 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+</head>
+<body>
+    <a href="{% url 'projects' %}" class="navbar-brand p-2">Portfolio</a>
+    <a href="{% url 'about' %}" class="navbar-brand ml-auto">About</a>
+    <h1>This is main page. It will contain who am i and all the rest stuff......</h1>
+    <h1>Todo</h1>
+    <h1>Click here -><button> <a href="{% url 'projects' %}" class="navbar-brand p-2">Portfolio</a></button> to view the website....</h1>
+</body>
+</html>

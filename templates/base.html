@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+</head>
+<body>
+
+        <div class="container mt-2 bg-light">
+             <nav class="navbar navbar-dark navbar-expand-lg bg-secondary p-2">
+                 <a href="{% url 'projects' %}">
+                    <img src="{% static 'smiley.PNG' %}" alt="">
+                 </a>
+                 <a href="{% url 'projects' %}" class="navbar-brand p-2">Portfolio</a>
+                 <a href="{% url 'about' %}" class="navbar-brand ml-auto">About</a>
+             </nav>
+        </div>
+{% block container %}
+        <div class="container mt-3 bg-light">
+        <div class="row">
+            <div class="col-3">
+                {% block side %}
+                    <div class="list-group">
+                    <nav class="list-group-item list-group-item-action active font-weight-bold text-center text-uppercase">categories</nav>
+                    {% for x in category %}
+                        <a href="{% url 'categories' x.cat_id %}" class="list-group-item list-group-item-action">{{ x.title }}</a>
+                    {% endfor %}
+                </div>
+                {% endblock %}
+            </div>
+            <div class="col-9">
+
+                        {% block body %}  {% endblock %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+
+</body>
+</html>

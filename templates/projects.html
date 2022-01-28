@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load  static %}
+{% block side %}
+    {{ block.super }}
+{% endblock %}
+
+{% block body %}
+
+
+            <div class="col-9">
+                <div class="row">
+                    {% for a in product %}
+                    <div class="col-lg-6 mt-3 d-flex ">
+                        <div class="card bg-light shadow">
+                           <img src="{{ a.image.url }}" alt="" class="card-img-top mx-auto img-rounded img-fluid">
+                            <div class="card-body">
+                                <h2 class="lead text-truncate mb-1">{{ a.name|upper|linebreaksbr }}</h2>
+                                <P class="card-text small mb-1">{{ a.category|linebreaks }}</P>
+                                <P class="card-text small mb-1">{{ a.description|truncatewords:'20'|linebreaks }}</P>
+                                <P class="card-text small mb-1">{{ a.softwareUsed|linebreaks|truncatewords:'20' }}</P>
+                                <a href="{% url 'project' a.pro_id %}" class="btn btn-success btn-sm btn-block">View</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+{% endblock %}
